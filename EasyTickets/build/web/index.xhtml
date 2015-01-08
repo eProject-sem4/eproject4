@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:dataTable value="#{bookingManagedBean.lstBooking}" var="booking">
+            <h:column>
+                <table>
+                    <tr>
+                        <td>Fullname:</td>
+                        <td><h:outputText value="#{booking.idUser.fullName}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Event:</td>
+                        <td><h:outputText value="#{booking.idEvent.name}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Percent:</td>
+                        <td><h:outputText value="#{booking.idDiscount.percent}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Type Card:</td>
+                        <td><h:outputText value="#{booking.idTypeCard.typecard}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Seat:</td>
+                        <td><h:outputText value="#{booking.idSeat.seat}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Price:</td>
+                        <td><h:outputText value="#{booking.priceBuy}"/></td>
+                    </tr>
+                </table>
+            </h:column>
+        </h:dataTable>
+        <h:link outcome="event" value="Home"/>
+    </h:body>
+</html>
+

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:head>
+        <title>Booking</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <table>
+                <tr>
+                    <td><b>Event:</b></td>
+                    <td><h:outputText value="#{bookingManagedBean.eventName}"/></td>
+                </tr>
+                <tr>
+                    <td><b>Place:</b></td>
+                    <td><h:outputText value="#{bookingManagedBean.eventPlace}"/></td>
+                </tr>
+                <tr>
+                    <td><b>Date:</b></td>
+                    <td><h:outputText value="#{bookingManagedBean.eventDate}"/></td>
+                </tr>
+                <tr>
+                    <td><b>Time:</b></td>
+                    <td><h:outputText value="#{bookingManagedBean.eventTime}"/></td>
+                </tr>
+            </table>
+<!--            <h:selectOneMenu>
+                <f:selectItems value="#{bookingManagedBean.countSeat}" var="s" itemValue="#{s}" itemLabel="#{s}"/>
+            </h:selectOneMenu>-->
+            <h:dataTable value="#{bookingManagedBean.lstSeatConlai}" var="s">
+                <h:column>
+                    <h:outputText value="#{s.seat}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{s.idTypeSeat.type}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{s.idTypeSeat.price}"/>
+                </h:column>
+                <h:column>
+                    <h:selectBooleanCheckbox value="#{bookingManagedBean.checked[s.id]}"/>
+                </h:column>
+            </h:dataTable>
+            <h:commandButton value="Continue" action="#{bookingManagedBean.bookContinue()}">
+            </h:commandButton>
+        </h:form>
+    </h:body>
+</html>
+

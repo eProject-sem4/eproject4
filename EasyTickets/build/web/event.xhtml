@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:outputText value="Event"/>
+            <h:dataTable value="#{eventManagedBean.lstEvent}" var="e">
+                <h:column>
+                    <h:commandLink value="#{e}" actionListener="#{eventManagedBean.showPlace(e)}">
+                        <f:setPropertyActionListener target="#{bookingManagedBean.eventName}" value="#{e}"/>
+                    </h:commandLink>
+                </h:column>
+            </h:dataTable>
+            <br/>
+            <h:outputText value="Place"/>
+            <h:dataTable value="#{eventManagedBean.lstPlace}" var="p">
+                <h:column>
+                    <h:commandLink value="#{p}" actionListener="#{eventManagedBean.showDateTime(p)}">
+                        <f:setPropertyActionListener target="#{bookingManagedBean.eventPlace}" value="#{p}"/>
+                    </h:commandLink>
+                </h:column>
+            </h:dataTable>
+            <br/>
+            <h:outputText value="Date"/>
+            <h:dataTable value="#{eventManagedBean.lstDate}" var="d">
+                <h:column>
+                    <h:commandLink value="#{d}" actionListener="#{eventManagedBean.showTime(d)}">
+                        <f:setPropertyActionListener target="#{bookingManagedBean.eventDate}" value="#{d}"/>
+                    </h:commandLink>
+                </h:column>
+            </h:dataTable>
+            <br/>
+            <h:outputText value="Time"/>
+            <h:dataTable value="#{eventManagedBean.lstTime}" var="t">
+                <h:column>
+                    <h:commandLink value="#{t}" action="#{eventManagedBean.chang()}">
+                        <f:setPropertyActionListener target="#{bookingManagedBean.eventTime}" value="#{t}"/>
+                    </h:commandLink>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
